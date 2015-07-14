@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>F21E77A4-8887-4475-903F-7E49D6F249F1</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Thesaurus</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>0D08099959F72F33ECD75E811571694E4D01C2C1</key>
+		<string>github.com:jamesdeangepin/thesaurus.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Thesaurus/Thesaurus.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>0D08099959F72F33ECD75E811571694E4D01C2C1</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:jamesdeangepin/thesaurus.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>0D08099959F72F33ECD75E811571694E4D01C2C1</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>0D08099959F72F33ECD75E811571694E4D01C2C1</string>
+			<key>IDESourceControlWCCName</key>
+			<string>thesaurus</string>
+		</dict>
+	</array>
+</dict>
+</plist>
