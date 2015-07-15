@@ -79,11 +79,11 @@
 		1ABA8A341B544EC300995607 /* Thesaurus */ = {
 			isa = PBXGroup;
 			children = (
-				1ABA8A371B544EC300995607 /* AppDelegate.swift */,
 				1ABA8A3B1B544EC300995607 /* Main.storyboard */,
+				1AFA4C491B55D7B600974768 /* ViewController.swift */,
+				1ABA8A371B544EC300995607 /* AppDelegate.swift */,
 				1AFA4C431B55B9F700974768 /* newTopicViewController.swift */,
 				1ABA8A401B544EC300995607 /* LaunchScreen.xib */,
-				1AFA4C491B55D7B600974768 /* ViewController.swift */,
 				1AFA4C471B55BCF400974768 /* Images.xcassets */,
 				1ABA8A351B544EC300995607 /* Supporting Files */,
 			);
@@ -345,6 +345,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Thesaurus/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -355,6 +356,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Thesaurus/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

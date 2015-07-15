@@ -16,6 +16,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var preview: UIView!
     @IBOutlet weak var topicScroll: UIScrollView!
     
+    @IBOutlet weak var tile1: UIImageView!
+    @IBOutlet weak var tile2: UIImageView!
+    @IBOutlet weak var tile3: UIImageView!
+    @IBOutlet weak var tile4: UIView!
+    
     @IBOutlet weak var topic1: UILabel!
     @IBOutlet weak var topic2: UILabel!
     @IBOutlet weak var topic3: UILabel!
@@ -158,6 +163,26 @@ class ViewController: UIViewController {
         self.topic7.frame.origin.y = self.topic7.frame.origin.y + 50
         self.topic8.frame.origin.y = self.topic8.frame.origin.y + 50
         self.topic9.frame.origin.y = self.topic9.frame.origin.y + 50
+        
+        topic1.textColor = UIColor(red:0.425, green:0.722, blue:0.448, alpha:1)
+        topic2.textColor = UIColor(red:0.52, green:0.719, blue:0.286, alpha:1)
+        topic3.textColor = UIColor(red:0.428, green:0.394, blue:0.203, alpha:1)
+        topic4.textColor = UIColor(red:0.099, green:0.243, blue:0.24, alpha:1)
+        topic5.textColor = UIColor(red:0.281, green:0.578, blue:0.521, alpha:1)
+        topic6.textColor = UIColor(red:0.379, green:0.224, blue:0.052, alpha:1)
+        topic7.textColor = UIColor(red:0.019, green:0.364, blue:0.146, alpha:1)
+        topic8.textColor = UIColor(red:0.906, green:0.916, blue:0.319, alpha:1)
+        topic9.textColor = UIColor(red:0.605, green:0.692, blue:0.555, alpha:1)
+        
+        topic1.text = "Abstract Photography"
+        topic2.text = "Black and White"
+        topic3.text = "Macro Photography"
+        topic4.text = "Wildlife"
+        topic5.text = "Camera Gear"
+        topic6.text = "Photojournalism"
+        topic7.text = "Still Life"
+        topic8.text = "Photo Art"
+        topic9.text = "Street Photography"
         
         UIView.animateWithDuration(duration, delay: 0, usingSpringWithDamping: damping, initialSpringVelocity: spring, options: nil, animations: { () -> Void in
             self.topic1.frame.origin.y = self.topic1.frame.origin.y - 50
@@ -335,12 +360,8 @@ class ViewController: UIViewController {
         topic7.alpha = 0
         topic8.alpha = 0
         topic9.alpha = 0
-        
-        
-//        topicHeader.frame.origin.x = topicHeader.frame.origin.x + 30
-//        peopleWhoLike.frame.origin.x = peopleWhoLike.frame.origin.x + 30
+
         preview.frame.origin.x = preview.frame.origin.x + 375
-        
         topicHeader.alpha = 0
         peopleWhoLike.alpha = 0
         alsoLike.alpha = 0
@@ -358,54 +379,75 @@ class ViewController: UIViewController {
     }
     
     @IBAction func didTapTopic(sender: UITapGestureRecognizer) {
-        println("tapped")
-//        performSegueWithIdentifier("newTopic", sender: self)
-//        UIView.animateWithDuration(0.5, delay: 0, options: .CurveLinear, animations: { () -> Void in
-//            self.topic1.alpha = 0
-//            self.topic2.alpha = 0
-//            self.topic3.alpha = 0
-//            self.topic4.alpha = 0
-//            self.topic6.alpha = 0
-//            self.topic7.alpha = 0
-//            self.topic8.alpha = 0
-//            self.topic9.alpha = 0
-//            self.topicHeader.alpha = 0
-//            self.peopleWhoLike.alpha = 0
-//            self.alsoLike.alpha = 0
-//            self.preview.alpha = 0
-//        }, completion: nil)
-//        UIView.animateWithDuration(0.5, delay: 0, options: .CurveEaseInOut, animations: { () -> Void in
-//            self.topic1.frame.origin.x = self.topic1.frame.origin.x - 20
-//            self.topic2.frame.origin.x = self.topic2.frame.origin.x - 20
-//            self.topic3.frame.origin.x = self.topic3.frame.origin.x - 20
-//            self.topic4.frame.origin.x = self.topic4.frame.origin.x - 20
-//            self.topic6.frame.origin.x = self.topic6.frame.origin.x - 20
-//            self.topic7.frame.origin.x = self.topic7.frame.origin.x - 20
-//            self.topic8.frame.origin.x = self.topic8.frame.origin.x - 20
-//            self.topic9.frame.origin.x = self.topic9.frame.origin.x - 20
-//            self.topicHeader.frame.origin.x = self.topicHeader.frame.origin.x - 20
-//            self.peopleWhoLike.frame.origin.x = self.peopleWhoLike.frame.origin.x - 20
-//            self.alsoLike.frame.origin.x = self.alsoLike.frame.origin.x - 20
-//            self.preview.frame.origin.x = self.preview.frame.origin.x - 20
-//        }, completion: nil)
-        UIView.animateWithDuration(0.3, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 3, options: nil, animations: { () -> Void in
-//            self.topic5.transform = CGAffineTransformMakeScale(0.01, 0.01)
-//            self.listFadeOut()
-        }) { (Bool) -> Void in
-//            self.topic5.alpha = 0
-        }
+        // var tappedText = sender.view as! UILabel
+        
+        // Move and fade out the current topic text
         UIView.animateWithDuration(0.3, delay: 0, options: .CurveEaseInOut, animations: { () -> Void in
             self.topicHeader.frame.origin.x = self.topicHeader.frame.origin.x - 15
             self.topicHeader.alpha = 0
         }) { (Bool) -> Void in
-            self.topicHeader.text = "Print Making"
+            
+            //swap out the header text and color and setup for transition
+            self.topicHeader.text = "Photography"
             self.topicHeader.textColor = UIColor(red:0.105, green:0.411, blue:0.356, alpha:1)
             self.topicHeader.frame.origin.x = self.topicHeader.frame.origin.x + 30
+            
+            // Fade out the preview blocks
+            UIView.animateWithDuration(0.5, delay: 0, options: .CurveEaseInOut, animations: { () -> Void in
+                self.tile4.alpha = 0
+                }) { (Bool) -> Void in
+                }
+            UIView.animateWithDuration(0.5, delay: 0, options: .CurveEaseInOut, animations: { () -> Void in
+                self.tile3.alpha = 0
+                }) { (Bool) -> Void in
+                    self.tile3.image = UIImage(named: "2_tile3")
+                    UIView.animateWithDuration(0.5, delay: 0, options: .CurveEaseInOut, animations: { () -> Void in
+                        self.tile3.alpha = 1
+                        }, completion: nil)
+                }
+            UIView.animateWithDuration(0.5, delay: 0.1, options: .CurveEaseInOut, animations: { () -> Void in
+                self.tile2.alpha = 0
+                }) { (Bool) -> Void in
+                    self.tile2.image = UIImage(named: "2_tile2")
+                    UIView.animateWithDuration(0.5, delay: 0, options: .CurveEaseInOut, animations: { () -> Void in
+                        self.tile2.alpha = 1
+                        }, completion: nil)
+                }
+            UIView.animateWithDuration(0.5, delay: 0.2, options: .CurveEaseInOut, animations: { () -> Void in
+                self.tile1.alpha = 0
+                }) { (Bool) -> Void in
+                    self.tile1.image = UIImage(named: "2_tile1")
+                    UIView.animateWithDuration(0.5, delay: 0, options: .CurveEaseInOut, animations: { () -> Void in
+                        self.tile1.alpha = 1
+                        }, completion: nil)
+                }
+            
+//            //                self.tile4.image = UIImage(named: "2_tile4")
+//            self.tile3.image = UIImage(named: "2_tile3")
+//            self.tile2.image = UIImage(named: "2_tile2")
+//            self.tile1.image = UIImage(named: "2_tile1")
+//            
+//            UIView.animateWithDuration(0.5, delay: 0, options: .CurveEaseInOut, animations: { () -> Void in
+//                self.tile4.alpha = 1
+//                }, completion: nil)
+//            UIView.animateWithDuration(0.5, delay: 0, options: .CurveEaseInOut, animations: { () -> Void in
+//                self.tile2.alpha = 1
+//                }, completion: nil)
+//            UIView.animateWithDuration(0.5, delay: 0, options: .CurveEaseInOut, animations: { () -> Void in
+//                self.tile1.alpha = 1
+//                }, completion: nil)
+
+            
+            //Animate the new header in
             UIView.animateWithDuration(0.3, delay: 0, options: .CurveEaseInOut, animations: { () -> Void in
                 self.topicHeader.frame.origin.x = self.topicHeader.frame.origin.x - 15
                 self.topicHeader.alpha = 1
+                                
                 self.listFadeOut()
             }, completion: { (Bool) -> Void in
+                // Remove the old list of topics
+                
+                // load the new list of topics
                 self.delay(0.3) {
                     self.listLoadNew()
                     self.listFadeNew()
