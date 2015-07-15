@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var mainContent: UIView!
     @IBOutlet weak var pullDown: UIView!
+    @IBOutlet weak var history: UIView!
     
     @IBOutlet weak var peopleWhoLike: UILabel!
     @IBOutlet weak var alsoLike: UILabel!
@@ -75,6 +76,8 @@ class ViewController: UIViewController {
         peopleWhoLike.alpha = 0
         alsoLike.alpha = 0
         preview.alpha = 0
+        
+        history.alpha = 0
         
         topicScroll.contentSize = CGSize(width: 375, height: 383)
         
@@ -471,15 +474,33 @@ class ViewController: UIViewController {
             mainContent.frame.origin.y = finalContentPosition
             
         } else if(sender.state == UIGestureRecognizerState.Ended) {
+            if (mainContent.frame.origin.y > 0 && mainContent.frame.origin.y < 59) {
+                UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 10, options: nil, animations: { () -> Void in
+                    self.mainContent.frame.origin.y = 0
+                }, completion: nil)
+            }
             if (mainContent.frame.origin.y > 60) {
                 UIView.animateWithDuration(0.3, delay: 0, options: .CurveEaseInOut, animations: { () -> Void in
                     self.mainContent.frame.origin.y = 677
-                    self.pullDown.alpha = 0
+                    self.mainContent.alpha = 0
+                }, completion: nil)
+                UIView.animateWithDuration(0.8, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 10, options: nil, animations: { () -> Void in
+                    self.history.alpha = 1
+                    self.history.frame.origin.y = 0
                 }, completion: nil)
             }
+            
         }
     }
     
+    @IBAction func didTapClose(sender: UITapGestureRecognizer) {
+        UIView.animateWithDuration(0.8, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 10, options: nil, animations: { () -> Void in
+            self.history.alpha = 0
+            self.mainContent.alpha = 1
+            self.history.frame.origin.y = -667
+            self.mainContent.frame.origin.y = 0
+        }, completion: nil)
+    }
     
     
     override func didReceiveMemoryWarning() {
