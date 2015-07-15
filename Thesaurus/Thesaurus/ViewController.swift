@@ -10,6 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var mainContent: UIView!
+    @IBOutlet weak var pullDown: UIView!
+    
     @IBOutlet weak var peopleWhoLike: UILabel!
     @IBOutlet weak var alsoLike: UILabel!
     @IBOutlet weak var topicHeader: UILabel!
@@ -35,6 +38,12 @@ class ViewController: UIViewController {
     var damping: CGFloat! = 1
     var spring: CGFloat! = 5
     
+    var contentStartX : CGFloat!
+    var contentPanBegan : CGFloat!!
+    var messageBackgroundColor: UIColor!
+    
+    var finalContentPosition : CGFloat!
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -422,22 +431,6 @@ class ViewController: UIViewController {
                         }, completion: nil)
                 }
             
-//            //                self.tile4.image = UIImage(named: "2_tile4")
-//            self.tile3.image = UIImage(named: "2_tile3")
-//            self.tile2.image = UIImage(named: "2_tile2")
-//            self.tile1.image = UIImage(named: "2_tile1")
-//            
-//            UIView.animateWithDuration(0.5, delay: 0, options: .CurveEaseInOut, animations: { () -> Void in
-//                self.tile4.alpha = 1
-//                }, completion: nil)
-//            UIView.animateWithDuration(0.5, delay: 0, options: .CurveEaseInOut, animations: { () -> Void in
-//                self.tile2.alpha = 1
-//                }, completion: nil)
-//            UIView.animateWithDuration(0.5, delay: 0, options: .CurveEaseInOut, animations: { () -> Void in
-//                self.tile1.alpha = 1
-//                }, completion: nil)
-
-            
             //Animate the new header in
             UIView.animateWithDuration(0.3, delay: 0, options: .CurveEaseInOut, animations: { () -> Void in
                 self.topicHeader.frame.origin.x = self.topicHeader.frame.origin.x - 15
@@ -455,6 +448,39 @@ class ViewController: UIViewController {
             })
         }
     }
+    
+    @IBAction func didPanDown(sender: UIPanGestureRecognizer) {
+        println("dragged")
+        var location = sender.locationInView(view)
+        var translation = sender.translationInView(view)
+        var velocity = sender.velocityInView(view)
+        
+        println(translation.y)
+        
+        if (sender.state == UIGestureRecognizerState.Began) {
+            contentPanBegan = mainContent.frame.origin.y
+            
+        } else if(sender.state == UIGestureRecognizerState.Changed) {
+            finalContentPosition = contentPanBegan + translation.y
+            
+            // begin drag
+//            if (mainContent.frame.origin.y > 60) {
+//                mainContent.frame.origin.y = 677
+//            }
+            
+            mainContent.frame.origin.y = finalContentPosition
+            
+        } else if(sender.state == UIGestureRecognizerState.Ended) {
+            if (mainContent.frame.origin.y > 60) {
+                UIView.animateWithDuration(0.3, delay: 0, options: .CurveEaseInOut, animations: { () -> Void in
+                    self.mainContent.frame.origin.y = 677
+                    self.pullDown.alpha = 0
+                }, completion: nil)
+            }
+        }
+    }
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
