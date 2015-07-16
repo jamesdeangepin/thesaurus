@@ -35,9 +35,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var topic8: UILabel!
     @IBOutlet weak var topic9: UILabel!
     
-    var duration: NSTimeInterval! = 0.6
-    var damping: CGFloat! = 1
-    var spring: CGFloat! = 5
+    var duration: NSTimeInterval! = 1
+    var damping: CGFloat! = 0.7
+    var spring: CGFloat! = 1.8
     
     var contentStartX : CGFloat!
     var contentPanBegan : CGFloat!!
@@ -339,8 +339,6 @@ class ViewController: UIViewController {
             }, completion: nil)
     }
     
-    
-    
     func delay(delay:Double, closure:()->()) {
         dispatch_after(
             dispatch_time(
@@ -409,7 +407,7 @@ class ViewController: UIViewController {
                 self.tile4.alpha = 0
                 }) { (Bool) -> Void in
                 }
-            UIView.animateWithDuration(0.5, delay: 0, options: .CurveEaseInOut, animations: { () -> Void in
+            UIView.animateWithDuration(0.5, delay: 0.1, options: .CurveEaseInOut, animations: { () -> Void in
                 self.tile3.alpha = 0
                 }) { (Bool) -> Void in
                     self.tile3.image = UIImage(named: "2_tile3")
@@ -417,7 +415,7 @@ class ViewController: UIViewController {
                         self.tile3.alpha = 1
                         }, completion: nil)
                 }
-            UIView.animateWithDuration(0.5, delay: 0.1, options: .CurveEaseInOut, animations: { () -> Void in
+            UIView.animateWithDuration(0.5, delay: 0.2, options: .CurveEaseInOut, animations: { () -> Void in
                 self.tile2.alpha = 0
                 }) { (Bool) -> Void in
                     self.tile2.image = UIImage(named: "2_tile2")
@@ -425,7 +423,7 @@ class ViewController: UIViewController {
                         self.tile2.alpha = 1
                         }, completion: nil)
                 }
-            UIView.animateWithDuration(0.5, delay: 0.2, options: .CurveEaseInOut, animations: { () -> Void in
+            UIView.animateWithDuration(0.5, delay: 0.3, options: .CurveEaseInOut, animations: { () -> Void in
                 self.tile1.alpha = 0
                 }) { (Bool) -> Void in
                     self.tile1.image = UIImage(named: "2_tile1")
@@ -433,15 +431,14 @@ class ViewController: UIViewController {
                         self.tile1.alpha = 1
                         }, completion: nil)
                 }
-            
             //Animate the new header in
             UIView.animateWithDuration(0.3, delay: 0, options: .CurveEaseInOut, animations: { () -> Void in
                 self.topicHeader.frame.origin.x = self.topicHeader.frame.origin.x - 15
                 self.topicHeader.alpha = 1
-                                
+                
+                // Remove the old list of topics
                 self.listFadeOut()
             }, completion: { (Bool) -> Void in
-                // Remove the old list of topics
                 
                 // load the new list of topics
                 self.delay(0.3) {
@@ -466,16 +463,11 @@ class ViewController: UIViewController {
         } else if(sender.state == UIGestureRecognizerState.Changed) {
             finalContentPosition = contentPanBegan + translation.y
             
-            // begin drag
-//            if (mainContent.frame.origin.y > 60) {
-//                mainContent.frame.origin.y = 677
-//            }
-            
             mainContent.frame.origin.y = finalContentPosition
             
         } else if(sender.state == UIGestureRecognizerState.Ended) {
             if (mainContent.frame.origin.y > 0 && mainContent.frame.origin.y < 59) {
-                UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 10, options: nil, animations: { () -> Void in
+                UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 10, options: nil, animations: { () -> Void in
                     self.mainContent.frame.origin.y = 0
                 }, completion: nil)
             }
@@ -489,7 +481,6 @@ class ViewController: UIViewController {
                     self.history.frame.origin.y = 0
                 }, completion: nil)
             }
-            
         }
     }
     
@@ -501,7 +492,6 @@ class ViewController: UIViewController {
             self.mainContent.frame.origin.y = 0
         }, completion: nil)
     }
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
