@@ -116,7 +116,6 @@ class ViewController: UIViewController {
             }) { (Bool) -> Void in
                 //
         }
-        
         UIView.animateWithDuration(duration, delay: 0, usingSpringWithDamping: damping, initialSpringVelocity: spring, options: nil, animations: { () -> Void in
             self.topic1.frame.origin.y = self.topic1.frame.origin.y - 50
             }) { (Bool) -> Void in

@@ -11,6 +11,7 @@
 		1ABA8A3D1B544EC300995607 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ABA8A3B1B544EC300995607 /* Main.storyboard */; };
 		1ABA8A421B544EC300995607 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1ABA8A401B544EC300995607 /* LaunchScreen.xib */; };
 		1ABA8A4E1B544EC300995607 /* ThesaurusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABA8A4D1B544EC300995607 /* ThesaurusTests.swift */; };
+		1AE8FFE51B58748500A9B161 /* launchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE8FFE41B58748500A9B161 /* launchViewController.swift */; };
 		1AFA4C441B55B9F700974768 /* newTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFA4C431B55B9F700974768 /* newTopicViewController.swift */; };
 		1AFA4C481B55BCF400974768 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AFA4C471B55BCF400974768 /* Images.xcassets */; };
 		1AFA4C4A1B55D7B600974768 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFA4C491B55D7B600974768 /* ViewController.swift */; };
@@ -35,6 +36,7 @@
 		1ABA8A471B544EC300995607 /* ThesaurusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThesaurusTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ABA8A4C1B544EC300995607 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1ABA8A4D1B544EC300995607 /* ThesaurusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThesaurusTests.swift; sourceTree = "<group>"; };
+		1AE8FFE41B58748500A9B161 /* launchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = launchViewController.swift; sourceTree = "<group>"; };
 		1AFA4C431B55B9F700974768 /* newTopicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = newTopicViewController.swift; sourceTree = "<group>"; };
 		1AFA4C471B55BCF400974768 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1AFA4C491B55D7B600974768 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				1ABA8A401B544EC300995607 /* LaunchScreen.xib */,
 				1AFA4C471B55BCF400974768 /* Images.xcassets */,
 				1ABA8A351B544EC300995607 /* Supporting Files */,
+				1AE8FFE41B58748500A9B161 /* launchViewController.swift */,
 			);
 			path = Thesaurus;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 				1AFA4C4A1B55D7B600974768 /* ViewController.swift in Sources */,
 				1AFA4C441B55B9F700974768 /* newTopicViewController.swift in Sources */,
 				1ABA8A381B544EC300995607 /* AppDelegate.swift in Sources */,
+				1AE8FFE51B58748500A9B161 /* launchViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
