@@ -76,7 +76,7 @@ class launchViewController: UIViewController {
             UIView.animateWithDuration(self.duration, delay: 0.35, options: .CurveLinear, animations: { () -> Void in
                 self.logo9.alpha = 1
                 }, completion: nil)
-            UIView.animateWithDuration(1, delay: 0.75, options: .CurveLinear, animations: { () -> Void in
+            UIView.animateWithDuration(0.5, delay: 0.55, options: .CurveLinear, animations: { () -> Void in
                 self.logoRemainder.alpha = 1
                 }, completion: nil)
         }
